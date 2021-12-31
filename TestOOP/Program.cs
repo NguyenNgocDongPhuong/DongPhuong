@@ -1,12 +1,13 @@
 ﻿using System;
-
+using System.Text.RegularExpressions;
 namespace TestOOP
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Start!");
+            HoaDon hd = new HoaDon();
+            hd.Nhap();
         }
     }
 }
