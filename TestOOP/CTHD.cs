@@ -37,6 +37,7 @@ namespace TestOOP
                     case "1": _sp = new QuatDung(); break;
                     case "2": _sp = new QuatHoiNuoc(); break;
                     case "3": _sp = new QuatDien(); break;
+                    default: _sp = new QuatDung(); break;
                 }
             }
             else

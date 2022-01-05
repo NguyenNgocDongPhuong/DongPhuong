@@ -8,6 +8,8 @@ namespace TestOOP
         {
             HoaDon hd = new HoaDon();
             hd.Nhap();
+            //CTHD cthd = new CTHD();
+            //cthd.Nhap();
         }
     }
 }

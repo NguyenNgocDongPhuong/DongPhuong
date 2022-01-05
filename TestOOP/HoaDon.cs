@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace TestOOP
 {
@@ -12,7 +13,7 @@ namespace TestOOP
         private KhachHang _khach;
         private CTHD[] _dsSP;
         private int _slCTHD;
-        private string _ngayHD;
+        private DateTime _ngayHD;
         private double _gia;
         public void Nhap()
         {
@@ -26,15 +27,23 @@ namespace TestOOP
                     Console.WriteLine("Ma hoadon chi bao gom chu hoac so, dai tu 3 den 10 ky tu. Xin vui long nhap lai!");
             } while (!ktMaHD);
 
-            bool ktNgayHD;
+            bool checkFormat;
+            bool checkValid;
+            string dateString;
             do
             {
                 Console.Write("Ngay lap hoa don: ");
-                _ngayHD = Console.ReadLine();
-                ktNgayHD = Regex.Match(_ngayHD, @"^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$").Success;
-                if (!ktNgayHD)
-                    Console.WriteLine("Ngay lap hoa don khong hop le.");
-            } while (!ktNgayHD);
+                dateString = Console.ReadLine();
+                checkFormat = Regex.Match(dateString, @"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$").Success;
+                checkValid = DateTime.TryParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _ngayHD);
+                DateTime today = DateTime.Now;
+                if (!checkFormat)
+                    Console.WriteLine("Hay nhap ngay lap hoa don chinh xac theo format dd/mm/yyyy");
+                else
+                    if (!checkValid || _ngayHD > today)
+                        Console.WriteLine("Ngay lap hoa don khong ton tai.");
+            } while (!(checkFormat && checkValid));
+
             Console.WriteLine("Thong tin khach hang: ");
             _khach = new KhachHang();
             _khach.Nhap();
@@ -44,7 +53,6 @@ namespace TestOOP
             bool ktSLCTHD;
             do
             {
-                Console.Write("So luong ban ra: ");
                 slTmp = Console.ReadLine();
                 ktSLCTHD = Regex.Match(slTmp, @"^[0-9]{1,10}$").Success;
                 if (!ktSLCTHD)
@@ -52,6 +60,7 @@ namespace TestOOP
 
             } while (!ktSLCTHD);
             _slCTHD = Int32.Parse(slTmp);
+            _dsSP = new CTHD[_slCTHD];
             for (int i = 0; i < _slCTHD; i++)
             {
                 Console.WriteLine("Nhap chi tiet hoa don thu " + (i + 1));
