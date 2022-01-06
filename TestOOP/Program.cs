@@ -6,10 +6,8 @@ namespace TestOOP
     {
         static void Main(string[] args)
         {
-            HoaDon hd = new HoaDon();
-            hd.Nhap();
-            //CTHD cthd = new CTHD();
-            //cthd.Nhap();
+            QuanLyHoaDon DienMayXanh = new QuanLyHoaDon();
+            DienMayXanh.Run();
         }
     }
 }
