@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Text.RegularExpressions;
 namespace TestOOP
 {
-    class MayQuat : ThietBiDien
+    abstract class MayQuat : ThietBiDien
     {
-        public override int Loai()
-        {
-            return 1;
-        }
         public override void Nhap()
         {
             base.Nhap();
         }
+
+        public override string XuatString()
+        {
+            return base.XuatString();
+        }
+        public abstract override int Gia();
     }
 }

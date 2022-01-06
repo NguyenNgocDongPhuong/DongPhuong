@@ -6,31 +6,33 @@ namespace TestOOP
 {
     abstract class ThietBiDien
     {
-        private string _maSP;
-        private string _tenSP;
-        private string _noiSX;
-        private double _gia;
+        protected string MaSP;
+        protected string TenSP;
+        protected string NoiSX;
         public virtual void Nhap()
         {
             bool ktMaKH;
             do
             {
-                Console.Write("Ma san pham: ");
-                _maSP = Console.ReadLine();
-                ktMaKH = Regex.Match(_maSP, @"^[a-zA-Z0-9]{3,10}$").Success;
+                Console.Write("\t\t\tMa san pham: ");
+                MaSP = Console.ReadLine();
+
+                ktMaKH = Regex.Match(MaSP, @"^[a-zA-Z0-9]{3,10}$").Success;
                 if (!ktMaKH)
                     Console.WriteLine("Ma san pham chi bao gom chu hoac so, dai tu 3 den 10 ky tu. Xin vui long nhap lai!");
+
             } while (!ktMaKH);
 
-            Console.Write("Ten san pham: ");
-            _tenSP = Console.ReadLine();
-            Console.Write("Noi san xuat: ");
-            _noiSX = Console.ReadLine();
-        }
-        public virtual void Xuat()
-        {
+            Console.Write("\t\t\tTen san pham: ");
+            TenSP = Console.ReadLine();
 
+            Console.Write("\t\t\tNoi san xuat: ");
+            NoiSX = Console.ReadLine();
         }
-        public abstract int Loai();
+        public virtual string XuatString()
+        {
+            return MaSP + " ";
+        }
+        public abstract int Gia();
     }
 }

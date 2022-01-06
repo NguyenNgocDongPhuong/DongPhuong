@@ -9,11 +9,11 @@ namespace TestOOP
     class HoaDon
     {
         private string _maHD;
-        private string _maSP;
         private KhachHang _khach;
         private CTHD[] _dsSP;
         private int _slCTHD;
         private DateTime _ngayHD;
+        private string _ngayHDstring;
         private double _gia;
         public void Nhap()
         {
@@ -29,14 +29,16 @@ namespace TestOOP
 
             bool checkFormat;
             bool checkValid;
-            string dateString;
             do
             {
                 Console.Write("Ngay lap hoa don: ");
-                dateString = Console.ReadLine();
-                checkFormat = Regex.Match(dateString, @"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$").Success;
-                checkValid = DateTime.TryParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _ngayHD);
+                _ngayHDstring = Console.ReadLine();
+
+                checkFormat = Regex.Match(_ngayHDstring, @"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$").Success;
+                checkValid = DateTime.TryParseExact(_ngayHDstring, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _ngayHD);
+                
                 DateTime today = DateTime.Now;
+
                 if (!checkFormat)
                     Console.WriteLine("Hay nhap ngay lap hoa don chinh xac theo format dd/mm/yyyy");
                 else
@@ -47,8 +49,10 @@ namespace TestOOP
             Console.WriteLine("Thong tin khach hang: ");
             _khach = new KhachHang();
             _khach.Nhap();
+
             Console.WriteLine("Nhap danh sach cac chi tiet hoa don: ");
-            Console.Write("So luong chi tiet trong danh sach cac chi tiet hoa don: ");
+            Console.Write("\tSo luong chi tiet trong danh sach cac chi tiet hoa don: ");
+
             string slTmp;
             bool ktSLCTHD;
             do
@@ -60,13 +64,34 @@ namespace TestOOP
 
             } while (!ktSLCTHD);
             _slCTHD = Int32.Parse(slTmp);
+
             _dsSP = new CTHD[_slCTHD];
+
             for (int i = 0; i < _slCTHD; i++)
             {
-                Console.WriteLine("Nhap chi tiet hoa don thu " + (i + 1));
+                Console.WriteLine("\tNhap chi tiet hoa don thu " + (i + 1));
                 _dsSP[i] = new CTHD();
                 _dsSP[i].Nhap();
             }
+        }
+        private void TinhHoaDon()
+        {
+            _gia = 0;
+            for (int i = 0; i < _slCTHD; i++)
+                _gia += _dsSP[i].ThanhTien();
+        }
+        public string XuatString()
+        {
+            TinhHoaDon();
+
+            string res = "Hoa don: " + _maHD + " " + _ngayHDstring + " " + _gia.ToString() + "\n\n";
+
+            res += _khach.XuatString();
+
+            res += "Danh sach cac chi tiet hoa don:\n\n";
+            for (int i = 0; i < _slCTHD; i++)
+                res += _dsSP[i].XuatString() + "\n";
+            return res;
         }
     }
 }
