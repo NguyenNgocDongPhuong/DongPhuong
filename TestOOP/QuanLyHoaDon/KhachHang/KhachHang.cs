@@ -35,7 +35,7 @@ namespace TestOOP
                 Console.Write("\tSo dien thoai: ");
                 _soDienThoai = Console.ReadLine();
 
-                ktSDT = Regex.Match(_soDienThoai, @"^[0-9]{9,11}$").Success;
+                ktSDT = Regex.Match(_soDienThoai, @"^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$").Success;
                 if (!ktSDT)
                     Console.WriteLine("So dien thoai khong hop le. Vui long nhap so dien thoai dung!");
 
