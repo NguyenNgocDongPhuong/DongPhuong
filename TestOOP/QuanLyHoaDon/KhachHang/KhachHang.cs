@@ -11,6 +11,16 @@ namespace TestOOP
         private string _ten;
         private string _soDienThoai;
         private string _diaChi;
+        public static void NhapString(out string bienKieuString, string tenBien)
+        {
+            do
+            {
+                bienKieuString = Console.ReadLine();
+                if (bienKieuString == "")
+                    Console.WriteLine(tenBien + " khong duoc de trong. Vui long nhap lai");
+            }
+            while (bienKieuString == "");
+        }
         public KhachHang()
         {
             _maKH = "";
@@ -24,10 +34,10 @@ namespace TestOOP
             HoaDon.NhapMa(ref _maKH, "khach hang");
 
             Console.Write("\tTen khach hang: ");
-             _ten = Console.ReadLine();
+            NhapString(out _ten, "Ten khach hang");
 
             Console.Write("\tDia chi: ");
-            _diaChi = Console.ReadLine();
+            NhapString(out _diaChi, "Dia chi");
 
             bool ktSDT;
             do

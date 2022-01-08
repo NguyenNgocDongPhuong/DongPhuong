@@ -15,10 +15,10 @@ namespace TestOOP
             HoaDon.NhapMa(ref MaSP, "san pham");
 
             Console.Write("\t\t\tTen san pham: ");
-            TenSP = Console.ReadLine();
+            KhachHang.NhapString(out TenSP, "Ten san pham");
 
             Console.Write("\t\t\tNoi san xuat: ");
-            NoiSX = Console.ReadLine();
+            KhachHang.NhapString(out NoiSX, "Noi san xuat");
         }
         public virtual string XuatString()
         {
