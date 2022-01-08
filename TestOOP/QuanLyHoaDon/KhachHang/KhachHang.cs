@@ -20,17 +20,8 @@ namespace TestOOP
         }
         public void Nhap()
         {
-            bool ktMaKH;
-            do
-            {
-                Console.Write("\tMa khach hang: ");
-                _maKH = Console.ReadLine();
-
-                ktMaKH = Regex.Match(_maKH, @"^[a-zA-Z0-9]{3,10}$").Success;
-                if (!ktMaKH)
-                    Console.WriteLine("Ma khach hang chi bao gom chu hoac so, dai tu 3 den 10 ky tu. Xin vui long nhap lai!");
-
-            } while (!ktMaKH);
+            Console.Write("\tMa khach hang: ");
+            HoaDon.NhapMa(ref _maKH, "khach hang");
 
             Console.Write("\tTen khach hang: ");
              _ten = Console.ReadLine();
@@ -50,10 +41,6 @@ namespace TestOOP
 
             } while (!ktSDT);
         }
-        //public void Xuat()
-        //{
-        //    Console.WriteLine("Thong tin khach hang: " + _maKH + " " + _ten + " " + _diaChi + " " + _soDienThoai);
-        //}
         public string XuatString()
         {
             return "Thong tin khach hang:\n\tMa khach hang: " + _maKH + "\n\tTen khach hang: " + _ten + "\n\tDia chi: " + _diaChi + "\n\tSo dien thoai: " + _soDienThoai + "\n\n";

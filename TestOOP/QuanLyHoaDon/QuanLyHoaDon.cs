@@ -15,18 +15,7 @@ namespace TestOOP
         {
             Console.Clear();
             Console.Write("So luong hoa don muon nhap: ");
-            string slTmp;
-            bool ktSLHD;
-            do
-            {
-                slTmp = Console.ReadLine();
-
-                ktSLHD = Regex.Match(slTmp, @"^[0-9]{1,10}$").Success;
-                if (!ktSLHD)
-                    Console.WriteLine("Vui long nhap so luong la mot so nguyen");
-
-            } while (!ktSLHD);
-            _slHD = Int32.Parse(slTmp);
+            HoaDon.NhapSoNguyenDuong(ref _slHD, "so luong");
 
             _dsHD = new HoaDon[_slHD];
 

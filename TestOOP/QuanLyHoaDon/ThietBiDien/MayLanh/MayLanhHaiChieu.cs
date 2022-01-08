@@ -11,37 +11,17 @@ namespace TestOOP
         public override void Nhap()
         {
             base.Nhap();
-            Console.Write("\t\t\tCong nghe khu mui?\n\t\t\t 0. Khong co  1. Co: ");
 
             string cnKhuMui;
-            bool ktCNKM;
-            do
-            {
-                cnKhuMui = Console.ReadLine();
-
-                ktCNKM = (cnKhuMui == "1" || cnKhuMui == "0");
-                if (!ktCNKM)
-                    Console.WriteLine("Hay nhap '1' hoac '0' tuong ung co hoac khong co CN khu mui");
-
-            } while (!ktCNKM);
+            MayLanh.Nhap01(out cnKhuMui, "Cong nghe khu mui");
 
             if (cnKhuMui == "1")
                 KhuMui = true;
             else
                 KhuMui = false;
 
-            Console.Write("\t\t\tCong nghe khang khuan?\n\t\t\t 0. Khong co  1. Co: ");
             string cnKhangKhuan;
-            bool ktCNKK;
-            do
-            {
-                cnKhangKhuan = Console.ReadLine();
-
-                ktCNKK = (cnKhangKhuan == "1" || cnKhangKhuan == "0");
-                if (!ktCNKK)
-                    Console.WriteLine("Hay nhap '1' hoac '0' tuong ung co hoac khong co CN khang khuan");
-
-            } while (!ktCNKK);
+            MayLanh.Nhap01(out cnKhangKhuan, "Cong nghe khang khuan");
 
             if (cnKhangKhuan == "1")
                 KhangKhuan = true;

@@ -15,17 +15,39 @@ namespace TestOOP
         private DateTime _ngayHD;
         private string _ngayHDstring;
         private double _gia;
-        public void Nhap()
+        public static void NhapSoNguyenDuong(ref int sl, string tenBien)
+        {
+            string slTmp;
+            bool ktSL;
+            do
+            {
+                slTmp = Console.ReadLine();
+                while (slTmp.Length>1 && slTmp[0] == '0')
+                {
+                    slTmp = slTmp.Substring(1);
+                }
+                ktSL = Regex.Match(slTmp, @"^[0-9]{1,10}$").Success && slTmp!="0";
+                if (ktSL == false)
+                    Console.WriteLine("Vui long nhap " + tenBien + " la mot so nguyen duong");
+
+            } while (ktSL == false);
+            sl = Int32.Parse(slTmp);
+        }
+        public static void NhapMa(ref string ma, string tenBien)
         {
             bool ktMaHD;
             do
             {
-                Console.Write("Ma hoa don: ");
-                _maHD = Console.ReadLine();
-                ktMaHD = Regex.Match(_maHD, @"^[a-zA-Z0-9]{3,10}$").Success;
+                ma = Console.ReadLine();
+                ktMaHD = Regex.Match(ma, @"^[a-zA-Z0-9]{3,10}$").Success;
                 if (!ktMaHD)
-                    Console.WriteLine("Ma hoadon chi bao gom chu hoac so, dai tu 3 den 10 ky tu. Xin vui long nhap lai!");
+                    Console.WriteLine("Ma " + tenBien + " chi bao gom chu hoac so, dai tu 3 den 10 ky tu. Xin vui long nhap lai!");
             } while (!ktMaHD);
+        }
+        public void Nhap()
+        {
+            Console.Write("Ma hoa don: ");
+            NhapMa(ref _maHD, "hoa don");
 
             bool checkFormat;
             bool checkValid;
@@ -33,8 +55,7 @@ namespace TestOOP
             {
                 Console.Write("Ngay lap hoa don: ");
                 _ngayHDstring = Console.ReadLine();
-
-                checkFormat = Regex.Match(_ngayHDstring, @"(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$").Success;
+                checkFormat = Regex.Match(_ngayHDstring, @"(([0-9]{2})\/([0-9]{2})\/([0-9]{4}))$").Success;
                 checkValid = DateTime.TryParseExact(_ngayHDstring, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _ngayHD);
                 
                 DateTime today = DateTime.Now;
@@ -52,18 +73,7 @@ namespace TestOOP
 
             Console.WriteLine("Nhap danh sach cac chi tiet hoa don: ");
             Console.Write("\tSo luong chi tiet trong danh sach cac chi tiet hoa don: ");
-
-            string slTmp;
-            bool ktSLCTHD;
-            do
-            {
-                slTmp = Console.ReadLine();
-                ktSLCTHD = Regex.Match(slTmp, @"^[0-9]{1,10}$").Success;
-                if (!ktSLCTHD)
-                    Console.WriteLine("Vui long nhap so luong la mot so nguyen");
-
-            } while (!ktSLCTHD);
-            _slCTHD = Int32.Parse(slTmp);
+            NhapSoNguyenDuong(ref _slCTHD, "so luong");
 
             _dsSP = new CTHD[_slCTHD];
 

@@ -10,19 +10,8 @@ namespace TestOOP
         public override void Nhap()
         {
             base.Nhap();
-            string dlString;
-            bool ktDL;
-            do
-            {
-                Console.Write("\n\t\tDung luong pin: ");
-                dlString = Console.ReadLine();
-
-                ktDL = Regex.Match(dlString, @"^[0-9]{1,10}$").Success;
-                if (!ktDL)
-                    Console.WriteLine("Vui long nhap dung luong la mot so nguyen");
-
-            } while (!ktDL);
-            _dungLuongPin = Int32.Parse(dlString);
+            Console.Write("\t\t\tDung luong pin: ");
+            HoaDon.NhapSoNguyenDuong(ref _dungLuongPin, "dung luong pin");
         }
 
         public override string XuatString()

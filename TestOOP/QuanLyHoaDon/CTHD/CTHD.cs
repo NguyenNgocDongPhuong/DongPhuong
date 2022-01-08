@@ -66,19 +66,21 @@ namespace TestOOP
 
             _sp.Nhap();
 
-            string slTmp;
-            bool ktSL;
-            do
-            {
-                Console.Write("\t\tSo luong ban ra: ");
-                slTmp = Console.ReadLine();
+            //string slTmp;
+            //bool ktSL;
+            //do
+            //{
+            //    Console.Write("\t\tSo luong ban ra: ");
+            //    slTmp = Console.ReadLine();
 
-                ktSL = Regex.Match(slTmp, @"^[0-9]{1,10}$").Success;
-                if (!ktSL)
-                    Console.WriteLine("Vui long nhap so luong la mot so nguyen");
+            //    ktSL = Regex.Match(slTmp, @"^[0-9]{1,10}$").Success;
+            //    if (!ktSL)
+            //        Console.WriteLine("Vui long nhap so luong la mot so nguyen");
 
-            } while (!ktSL);
-            _sl = Int32.Parse(slTmp);
+            //} while (!ktSL);
+            //_sl = Int32.Parse(slTmp);
+            Console.Write("\t\tSo luong ban ra: ");
+            HoaDon.NhapSoNguyenDuong(ref _sl, "so luong");
         }
         public string XuatString()
         {
