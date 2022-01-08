@@ -50,19 +50,19 @@ namespace TestOOP
         }
         public override string XuatString()
         {
-            string res = base.XuatString() + "May lanh 2 chieu " + TenSP + " " + NoiSX + " " + Gia();
+            string res = base.XuatString() + "\n\t\tLoai may lanh: May lanh 2 chieu\n\t\tTen san pham: " + TenSP + "\n\t\tNoi san xuat: " + NoiSX + "\n\t\tDon gia: " + Gia();
             if (KhangKhuan)
             {
-                res += " Co cong nghe khang khuan";
+                res += "\n\t\tCo cong nghe khang khuan";
             }
             else
-                res += " Khong co cong nghe khang khuan";
+                res += "\n\t\tKhong co cong nghe khang khuan";
             if (KhuMui)
             {
-                res += " Co cong nghe khu mui";
+                res += "\n\t\tCo cong nghe khu mui";
             }
             else
-                res += " Khong co cong nghe khu mui";
+                res += "\n\t\tKhong co cong nghe khu mui";
             return res;
         }
         public override int Gia()

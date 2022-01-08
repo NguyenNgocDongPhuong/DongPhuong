@@ -8,7 +8,7 @@ namespace TestOOP
     {
         public override string XuatString()
         {
-            return base.XuatString() + "May lanh 1 chieu " + TenSP + " " + NoiSX + " " + Gia();
+            return base.XuatString() + "\n\t\tLoai may lanh: May lanh 1 chieu\n\t\tTen san pham: " + TenSP + "\n\t\tNoi san xuat:" + NoiSX + "\n\t\tDon gia" + Gia();
         }
         public override void Nhap()
         {

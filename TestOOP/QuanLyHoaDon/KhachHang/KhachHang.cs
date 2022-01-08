@@ -56,7 +56,7 @@ namespace TestOOP
         //}
         public string XuatString()
         {
-            return "Thong tin khach hang: " + _maKH + " " + _ten + " " + _diaChi + " " + _soDienThoai + "\n\n";
+            return "Thong tin khach hang:\n\tMa khach hang: " + _maKH + "\n\tTen khach hang: " + _ten + "\n\tDia chi: " + _diaChi + "\n\tSo dien thoai: " + _soDienThoai + "\n\n";
         }
     }
 }

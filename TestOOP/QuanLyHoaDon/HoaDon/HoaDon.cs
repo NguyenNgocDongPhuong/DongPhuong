@@ -84,7 +84,7 @@ namespace TestOOP
         {
             TinhHoaDon();
 
-            string res = "Hoa don: " + _maHD + " " + _ngayHDstring + " " + _gia.ToString() + "\n\n";
+            string res = "\n\tMa hoa don: " + _maHD + "\n\tNgay lap hoa don: " + _ngayHDstring + "\n\tTong tien: " + _gia.ToString() + "\n\n";
 
             res += _khach.XuatString();
 

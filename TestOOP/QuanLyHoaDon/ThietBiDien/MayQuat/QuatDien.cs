@@ -14,7 +14,7 @@ namespace TestOOP
             bool ktDL;
             do
             {
-                Console.Write("\t\t\tDung luong pin: ");
+                Console.Write("\n\t\tDung luong pin: ");
                 dlString = Console.ReadLine();
 
                 ktDL = Regex.Match(dlString, @"^[0-9]{1,10}$").Success;
@@ -27,7 +27,7 @@ namespace TestOOP
 
         public override string XuatString()
         {
-            return base.XuatString() + "Quat dien " + TenSP + " " + NoiSX + " " + Gia() + " " + _dungLuongPin;
+            return base.XuatString() + "\n\t\tLoai may quat: Quat dien\n\t\tTen san pham: " + TenSP + "\n\t\tNoi san xuat: " + NoiSX + "\n\t\tDon gia: " + Gia() + "\n\t\tDung luong pin: " + _dungLuongPin;
         }
         public override int Gia()
         {

@@ -89,7 +89,7 @@ namespace TestOOP
             }
             else
                 res = "\tMay lanh: ";
-            res += _sp.XuatString() + " " + _sl + "\n";
+            res += _sp.XuatString() + "\n\tSo luong ban ra: " + _sl + "\n";
             return res;
         }
         public int ThanhTien()

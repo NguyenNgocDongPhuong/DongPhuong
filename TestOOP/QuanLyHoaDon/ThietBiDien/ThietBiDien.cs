@@ -31,7 +31,7 @@ namespace TestOOP
         }
         public virtual string XuatString()
         {
-            return MaSP + " ";
+            return "\n\t\tMa san pham: " + MaSP;
         }
         public abstract int Gia();
     }

@@ -13,7 +13,7 @@ namespace TestOOP
 
         public override string XuatString()
         {
-            return base.XuatString() + "Quat dung " + TenSP + " " + NoiSX + " " + Gia();
+            return base.XuatString() + "\n\t\tLoai may quat: Quat dung\n\t\tTen san pham: " + TenSP + "\n\t\tNoi san xuat: " + NoiSX + "\n\t\tDon gia: " + Gia();
         }
         public override int Gia()
         {

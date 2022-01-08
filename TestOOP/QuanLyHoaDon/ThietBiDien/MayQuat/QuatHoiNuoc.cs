@@ -14,7 +14,7 @@ namespace TestOOP
             bool ktDT;
             do
             {
-                Console.Write("\t\t\tDung tich nuoc: ");
+                Console.Write("\n\t\tDung tich nuoc: ");
                 dtString = Console.ReadLine();
 
                 ktDT = Regex.Match(dtString, @"^[0-9]{1,10}$").Success;
@@ -27,7 +27,7 @@ namespace TestOOP
 
         public override string XuatString()
         {
-            return base.XuatString() + "Quat dung " + TenSP + " " + NoiSX + " " + Gia() + " " + _dungTichNuoc;
+            return base.XuatString() + "\n\t\tLoai may quat: Quat dung\n\t\tTen san pham: " + TenSP + "\n\t\tNoi san xuat: " + NoiSX + "\n\t\tDon gia: " + Gia() + "\n\t\tDung tich nuoc: " + _dungTichNuoc;
         }
         public override int Gia()
         {

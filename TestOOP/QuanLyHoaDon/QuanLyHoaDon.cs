@@ -69,7 +69,8 @@ namespace TestOOP
                         else
                             currentHDIndex--;
                     }
-                    Console.WriteLine(_dsHD[currentHDIndex].XuatString());
+
+                    Console.WriteLine("Hoa don " + (currentHDIndex+1) + _dsHD[currentHDIndex].XuatString());
                 }
                 
                 key = Console.ReadKey().Key;
