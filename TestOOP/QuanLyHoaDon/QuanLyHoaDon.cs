@@ -86,14 +86,14 @@ namespace TestOOP
             string hoaDon = "";
             for (int i = 0; i < _slHD; i++)
             {
-                hoaDon += _dsHD[i].XuatString();
+                hoaDon += "Hoa don " + (i + 1) + _dsHD[i].XuatString();
                 //chỉ là page break cho đẹp
                 if (i < _slHD - 1)
                     hoaDon += "-------------------------------------------------------------------------------------------\n";
             }
 
-            await File.WriteAllTextAsync("D:\\danh_sach_hoa_don.txt", hoaDon);
-            Console.WriteLine("Hoa don da duoc luu vao file 'danh_sach_hoa_don' tai o D. Hay nhan phim bat ky de ve main menu");
+            await File.WriteAllTextAsync(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\danh_sach_hoa_don.txt", hoaDon);
+            Console.WriteLine("Hoa don da duoc luu vao file 'danh_sach_hoa_don' tai Desktop. Hay nhan phim bat ky de ve main menu");
             Console.ReadKey();
         }
         public void Run()
@@ -101,6 +101,7 @@ namespace TestOOP
             char key = 'a';
             while (key != 'e')
             {
+
                 key = MainMenu();
                 switch (key)
                 {
